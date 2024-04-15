@@ -1,0 +1,54 @@
+<mat-drawer-container class="example-container" autosize>
+
+  <!-- Sidebar content-->
+  <mat-drawer 
+  [opened]="!isMobile()" 
+  #drawer 
+  class="example-sidenav" 
+  [mode]="isMobile() ? 'over' : 'side'"
+  >
+    <p>Auto-resizing sidenav</p>
+    @if (showFiller) {
+      <p>Lorem, ipsum dolor sit amet consectetur.</p>
+    }
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+  <!-- Sidebar content-->
+
+  <!-- Contenido de la derecha del sidebar -->
+  <div class="example-sidenav-content">
+
+      <!-- Toolbar superior -->
+      <mat-toolbar color="primary" >
+          <button 
+          mat-icon-button class="example-icon" 
+          aria-label="Example icon-button with menu icon"
+          (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+              </button>
+              <span>Inicio</span>
+              <span class="example-spacer"></span>
+              <button 
+              mat-icon-button class="example-icon favorite-icon" 
+              aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+              </button>
+              <button 
+              mat-icon-button class="example-icon" 
+              aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+          </button>
+        </mat-toolbar>
+        <!-- Toolbar superior -->
+
+        <div class="app-user">
+          <app-users></app-users>
+        </div>
+
+  </div>
+
+  <!-- Contenido de la derecha del sidebar -->
+
+</mat-drawer-container>
