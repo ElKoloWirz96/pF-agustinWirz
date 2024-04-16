@@ -74,7 +74,7 @@ export class UsersComponent {
           } else {
             if (result) {
               // Cargar nuevo usuario en la lista de alumnos
-              result.id = new Date().getTime().toString().substring(0, 2);
+              result.id = new Date().getTime().toString().substring(0, 3);
               result.createdAt = new Date();
               this.user = [...this.user, result];
             }
@@ -98,8 +98,8 @@ export class UsersComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
+          title: "Alumno eliminado!",
+          text: "El alumno a sido eliminado correctamente.",
           icon: "success"
         });
         this.user = this.user.filter((u) => u.id != id);

@@ -3,16 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { PipesYDirectivasRoutingModule } from './pipes-y-directivas-routing.module';
 import { PipesYDirectivasComponent } from './pipes-y-directivas.component';
+import { MyCustomTextTranformPipe } from './my-custom-text-tranform.pipe';
 
 
 @NgModule({
   declarations: [
-    PipesYDirectivasComponent
+    PipesYDirectivasComponent,
+    MyCustomTextTranformPipe
   ],
   imports: [
     CommonModule,
     PipesYDirectivasRoutingModule
   ],
-  exports: [PipesYDirectivasComponent]
+  exports: [PipesYDirectivasComponent, MyCustomTextTranformPipe]
 })
 export class PipesYDirectivasModule { }
