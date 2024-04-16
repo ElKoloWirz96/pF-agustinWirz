@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -5,8 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MyCustomTextTranformPipe implements PipeTransform {
 
-  transform(value: string, ...args: unknown[]): unknown {
-    return value.toUpperCase();
+  transform(value: any): any {
+    const datePipe = new DatePipe('en-US');
+    return datePipe.transform(value, 'dd/MM/yyyy');
   }
 
 }

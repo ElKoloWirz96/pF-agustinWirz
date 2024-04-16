@@ -8,6 +8,7 @@ import {MatTableModule} from '@angular/material/table';
 
 import { SharedModule } from '../../../../shared/shared.module';
 import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
+import { PipesYDirectivasModule } from '../pipes-y-directivas/pipes-y-directivas.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserDialogComponent } from './components/user-dialog/user-dialog.compon
     CommonModule,
     UsersRoutingModule,
     MatTableModule,
-    SharedModule
+    SharedModule,
+    PipesYDirectivasModule
   ],
   exports: [
     UsersComponent

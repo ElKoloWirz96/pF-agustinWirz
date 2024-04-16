@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class PipesYDirectivasComponent {
 
+  // Pipes de la fecha
+  fecha = new Date();
+  
 }
