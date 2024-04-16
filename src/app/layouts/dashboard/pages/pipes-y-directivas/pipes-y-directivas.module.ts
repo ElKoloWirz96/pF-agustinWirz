@@ -17,6 +17,9 @@ import { SharedModule } from '../../../../shared/shared.module';
     PipesYDirectivasRoutingModule,
     SharedModule
   ],
-  exports: [PipesYDirectivasComponent, MyCustomTextTranformPipe]
+  exports: [
+    PipesYDirectivasComponent,
+    MyCustomTextTranformPipe
+  ]
 })
 export class PipesYDirectivasModule { }
