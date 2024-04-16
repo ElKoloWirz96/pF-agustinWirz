@@ -2,7 +2,7 @@
 
 <div mat-dialog-content>
     <form [formGroup]="userFrom">
-       <div class="row">
+       <div class="row formulario">
             <div class="col-6">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label> Nombre </mat-label>
@@ -17,14 +17,14 @@
                     <mat-hint>Ej: Gonzalez</mat-hint>
                 </mat-form-field>
             </div>
-            <div class="col-8">
+            <div class="col-8 email">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label> Correo </mat-label>
                     <input formControlName="email" matInput />
                     <mat-hint>Ej: ...hotmail.com</mat-hint>
                 </mat-form-field>
             </div>
-            <div class="col-4">
+            <div class="col-4 rol">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label> Role </mat-label>
                     <mat-select formControlName="role">

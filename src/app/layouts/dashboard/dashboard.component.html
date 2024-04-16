@@ -7,12 +7,15 @@
   class="example-sidenav" 
   [mode]="isMobile() ? 'over' : 'side'"
   >
-    <p>Auto-resizing sidenav</p>
+    <p>Menu</p>
     @if (showFiller) {
-      <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      <p>Lista de alumnos</p>
+      <p>Carreras</p>
+      <p>Cursos</p>
+      <p>Productos</p>
     }
     <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
+      Cerrar
     </button>
   </mat-drawer>
   <!-- Sidebar content-->
