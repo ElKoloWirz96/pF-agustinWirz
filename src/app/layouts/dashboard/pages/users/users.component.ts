@@ -79,8 +79,6 @@ export class UsersComponent {
               this.user = [...this.user, result];
             }
           }
-          
-          
         }
       },
     });
