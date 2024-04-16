@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IUser } from './models';
 import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-users',
@@ -54,13 +55,32 @@ export class UsersComponent {
 
   //Funcion para abrir el dialogo y cargar datos
   
-  openDialog(): void {
-    this.matDialog.open(UserDialogComponent).afterClosed().subscribe({
+  openDialog(editingUser?: IUser): void {
+    this.matDialog.open(UserDialogComponent, {
+      data: editingUser,
+    }).afterClosed().subscribe({
       next: (result) => {
         if (result) {
-          result.id = new Date().getTime().toString().substring(0, 2);
-          result.createdAt = new Date();
-          this.user = [...this.user, result];
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Alumno ingresado",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          if (editingUser) {
+            // Editar usuario existente
+            this.user = this.user.map((u: IUser) => u.id === editingUser.id ? { ...u, ...result } : u);
+          } else {
+            if (result) {
+              // Cargar nuevo usuario en la lista de alumnos
+              result.id = new Date().getTime().toString().substring(0, 2);
+              result.createdAt = new Date();
+              this.user = [...this.user, result];
+            }
+          }
+          
+          
         }
       },
     });
@@ -69,6 +89,24 @@ export class UsersComponent {
   //Funcion para borrar un usuario de la lista
 
   onDeleteUser(id: number): void {
-    this.user = this.user.filter((u) => u.id != id);
+    Swal.fire({
+      title: "¿Estas seguro de querer borrar este usuario?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, eliminar!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+        this.user = this.user.filter((u) => u.id != id);
+      }
+    });
+    
   }
 }

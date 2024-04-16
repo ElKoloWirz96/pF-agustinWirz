@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { IUser } from '../../models';
 
 @Component({
   selector: 'app-user-dialog',
@@ -11,7 +12,11 @@ export class UserDialogComponent {
 
   userFrom: FormGroup;
 
-  constructor( private formBuilder: FormBuilder, private matDialogRef: MatDialogRef<UserDialogComponent> ) {
+  constructor( 
+    private formBuilder: FormBuilder, 
+    private matDialogRef: MatDialogRef<UserDialogComponent>, 
+    @Inject(MAT_DIALOG_DATA) private editingUser?: IUser
+  ) {
     this.userFrom = this.formBuilder.group({
       nombre: ['',
       [
@@ -32,7 +37,11 @@ export class UserDialogComponent {
       ],
       ],
       role: ['admin', Validators.required],
-    })
+    });
+
+    if (editingUser) {
+      this.userFrom.patchValue(editingUser);
+    }
   }
 
   onSave (): void {
