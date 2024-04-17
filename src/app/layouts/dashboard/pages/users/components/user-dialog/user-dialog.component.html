@@ -8,7 +8,9 @@
                     <mat-label> Nombre </mat-label>
                     <input formControlName="nombre" matInput />
                     <mat-hint>Ej: Agustin</mat-hint>
-                    <mat-error> El nombre es requerido | FormFieldValidationErrorsPipe </mat-error>
+                    <mat-error>
+                        {{ nombre?.errors | formFieldValidationErrors }}
+                    </mat-error>
                 </mat-form-field>
             </div>
             <div class="col-6">
@@ -16,6 +18,7 @@
                     <mat-label> Apellido </mat-label>
                     <input formControlName="apellido" matInput />
                     <mat-hint>Ej: Gonzalez</mat-hint>
+                    <mat-error> {{ apellido?.errors | formFieldValidationErrors }} </mat-error>
                 </mat-form-field>
             </div>
             <div class="col-8 email">

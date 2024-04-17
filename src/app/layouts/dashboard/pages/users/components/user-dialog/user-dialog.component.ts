@@ -44,6 +44,14 @@ export class UserDialogComponent {
     }
   }
 
+  get nombre() {
+    return this.userFrom.get('nombre');
+  }
+
+  get apellido() {
+    return this.userFrom.get('apellido');
+  }
+
   onSave (): void {
     if (this.userFrom.invalid) {
       this.userFrom.markAllAsTouched();
