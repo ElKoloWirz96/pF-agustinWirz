@@ -13,10 +13,12 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-errors.pipe';
+import { ResaltadoDirective } from './directives/resaltado.directive';
 
 @NgModule({
   declarations: [
-    FormFieldValidationErrorsPipe
+    FormFieldValidationErrorsPipe,
+    ResaltadoDirective
   ],
   imports: [
     CommonModule
@@ -34,7 +36,8 @@ import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-err
     MatInputModule,
     ReactiveFormsModule,
     MatSelectModule,
-    FormFieldValidationErrorsPipe
+    FormFieldValidationErrorsPipe,
+    ResaltadoDirective
   ]
 })
 export class SharedModule { }

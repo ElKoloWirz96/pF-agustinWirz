@@ -51,6 +51,14 @@ export class UserDialogComponent {
   get apellido() {
     return this.userFrom.get('apellido');
   }
+  
+  get email() {
+    return this.userFrom.get('email');
+  }
+
+  get role() {
+    return this.userFrom.get('role');
+  }
 
   onSave (): void {
     if (this.userFrom.invalid) {
