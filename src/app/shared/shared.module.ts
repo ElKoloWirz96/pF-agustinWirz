@@ -14,11 +14,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-errors.pipe';
 import { ResaltadoDirective } from './directives/resaltado.directive';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { FontSizeDirective } from './directives/font-size.directive';
+
+
 
 @NgModule({
   declarations: [
     FormFieldValidationErrorsPipe,
-    ResaltadoDirective
+    ResaltadoDirective,
+    FontSizeDirective
   ],
   imports: [
     CommonModule
@@ -37,7 +42,9 @@ import { ResaltadoDirective } from './directives/resaltado.directive';
     ReactiveFormsModule,
     MatSelectModule,
     FormFieldValidationErrorsPipe,
-    ResaltadoDirective
+    ResaltadoDirective,
+    DragDropModule,
+    FontSizeDirective
   ]
 })
 export class SharedModule { }

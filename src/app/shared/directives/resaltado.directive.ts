@@ -1,12 +1,14 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, OnChanges, SimpleChanges, input } from '@angular/core';
 
 @Directive({
   selector: '[appResaltado]'
 })
 export class ResaltadoDirective {
 
-  constructor() {
-    console.log('ResaltadoDirective se ha instanciado')
+  constructor(private elementRef: ElementRef) {
+    
+    this.elementRef.nativeElement.style.fontWeight = 500;
+    this.elementRef.nativeElement.style.backgroundColor = 'red';
   }
-
+  
 }

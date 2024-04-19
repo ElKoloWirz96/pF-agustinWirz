@@ -13,6 +13,7 @@ export class UsersComponent {
   [x: string]: any;
 
   // Datos a cargar en el HTML
+
   displayedColumns: string[] = [
     'id', 
     'nombre', 
@@ -24,6 +25,7 @@ export class UsersComponent {
   ];
 
   //Lista de usuarios
+
   user: IUser[] = [
     {
       id: 1,
@@ -69,11 +71,15 @@ export class UsersComponent {
             timer: 1500
           });
           if (editingUser) {
+            
             // Editar usuario existente
+
             this.user = this.user.map((u: IUser) => u.id === editingUser.id ? { ...u, ...result } : u);
           } else {
             if (result) {
+
               // Cargar nuevo usuario en la lista de alumnos
+
               result.id = new Date().getTime().toString().substring(0, 3);
               result.createdAt = new Date();
               this.user = [...this.user, result];

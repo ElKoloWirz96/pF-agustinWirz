@@ -9,10 +9,10 @@
   >
     <p>Menu</p>
     @if (showFiller) {
-      <p>Lista de alumnos</p>
-      <p>Carreras</p>
-      <p>Cursos</p>
-      <p>Productos</p>
+      <p appFontSize="20px">Lista de alumnos</p>
+      <p appFontSize="20px">Carreras</p>
+      <p appFontSize="20px">Cursos</p>
+      <p appFontSize="20px">Productos</p>
     }
     <button (click)="showFiller = !showFiller" mat-raised-button>
       Paginas
@@ -31,7 +31,7 @@
           (click)="drawer.toggle()">
             <mat-icon>menu</mat-icon>
               </button>
-              <span>Inicio</span>
+              <span appFontSize="20px">Inicio</span>
               <span class="example-spacer"></span>
               <button 
               mat-icon-button class="example-icon favorite-icon" 
