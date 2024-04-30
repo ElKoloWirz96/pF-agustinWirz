@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../../shared/shared.module';
 import { UsersModule } from './pages/users/users.module';
 import { PipesYDirectivasModule } from './pages/pipes-y-directivas/pipes-y-directivas.module';
+import { ProductsModule } from './pages/products/products.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PipesYDirectivasModule } from './pages/pipes-y-directivas/pipes-y-direc
     DashboardRoutingModule,
     SharedModule,
     UsersModule,
-    PipesYDirectivasModule
+    PipesYDirectivasModule,
+    ProductsModule
   ],
   exports: [
     DashboardComponent

@@ -16,6 +16,7 @@ import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-err
 import { ResaltadoDirective } from './directives/resaltado.directive';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FontSizeDirective } from './directives/font-size.directive';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -44,7 +45,8 @@ import { FontSizeDirective } from './directives/font-size.directive';
     FormFieldValidationErrorsPipe,
     ResaltadoDirective,
     DragDropModule,
-    FontSizeDirective
+    FontSizeDirective,
+    MatTableModule
   ]
 })
 export class SharedModule { }

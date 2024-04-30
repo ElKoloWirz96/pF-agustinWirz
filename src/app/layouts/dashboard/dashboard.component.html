@@ -25,29 +25,47 @@
 
       <!-- Toolbar superior -->
       <mat-toolbar color="primary" >
-          <button 
-          mat-icon-button class="example-icon" 
-          aria-label="Example icon-button with menu icon"
-          (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon>
-              </button>
-              <span appFontSize="20px">Inicio</span>
-              <span class="example-spacer"></span>
-              <button 
-              mat-icon-button class="example-icon favorite-icon" 
-              aria-label="Example icon-button with heart icon">
-            <mat-icon>favorite</mat-icon>
-              </button>
-              <button 
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div>
+            <button 
               mat-icon-button class="example-icon" 
-              aria-label="Example icon-button with share icon">
-            <mat-icon>share</mat-icon>
-          </button>
+              aria-label="Example icon-button with menu icon"
+              (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+                  <span appFontSize="20px">Inicio</span>
+                  <span class="example-spacer"></span>
+            <button 
+                  mat-icon-button class="example-icon favorite-icon" 
+                  aria-label="Example icon-button with heart icon">
+                  <mat-icon>favorite</mat-icon>
+            </button>
+            <button 
+                  mat-icon-button class="example-icon" 
+                  aria-label="Example icon-button with share icon">
+                <mat-icon>share</mat-icon>
+            </button>
+          </div>
+
+        </div>
+        
         </mat-toolbar>
         <!-- Toolbar superior -->
 
+        <main style="padding: 1rem">
+          <div>
+            <button (click)=" logout()" mat-flat-button color="primary" >
+                Iniciar sesion
+            </button>
+        </div>
+        </main>
+
         <div class="app-user">
-          <app-users></app-users>
+
+          <!-- <app-users></app-users> -->
+
+          <app-products></app-products>
+
         </div>
 
   </div>

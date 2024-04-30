@@ -1,37 +1,64 @@
-import { Component,Inject } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ProductosServiceService } from '../../../../core/service/productos-service.service';
+import { IProduct } from './models';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrl: './products.component.scss'
+  styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent {
-  [x: string]: any;
+export class ProductsComponent implements OnInit {
 
-  displayedColumns = [
+  displayedColumns: string[] = [
     'id',
-    'name',
+    'career',
     'price',
+    'details',
     'actions'
   ];
 
-  // products: IProduct[] = [];
+  products: IProduct[] = [];
 
-  constructor(
-    //private productsService: ProductsService,
-    //@Inject(API_URL) private apiUrl: string,
-    //@Inject(RANDOM_NUMBER) private randomNumber: number,
-    //@Inject(PRODUCTS) public products: IProduct[],
-    //private alertsService: AlertsService
-  ) {
-    
-    this['alertsService'].notifier$.subscribe({
-      next: (message: any) => console.log(message),
+  runReloj() {
+    const obs = new Observable((observer) => {
+      observer.error('Error al cargar')
+
+      setTimeout(() => {
+        observer.next(new Date());
+
+      })
+      
     });
+    obs.subscribe({
+      next: (resultado) => {
+        console.log(resultado);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => {
+        console.log('El reloj dejo de emitir valores');
+      },
+    })
+  }
+
+  constructor(private productsService: ProductosServiceService) {
+    this.obtenerResultado();
+    this.runReloj();
   }
 
   ngOnInit(): void {
-    // this.products = this.productsService.getProducts();
+    this.products = this.productsService.getProducts();
+  }
+
+  async obtenerResultado() {
+    const cargadoColumna = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 3000);
+    });
+
+    await cargadoColumna.then((resultado) => {});
   }
 }
