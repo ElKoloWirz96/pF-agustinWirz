@@ -8,11 +8,22 @@
   [mode]="isMobile() ? 'over' : 'side'"
   >
     <p>Menu</p>
+    
     @if (showFiller) {
-      <p appFontSize="20px">Lista de alumnos</p>
-      <p appFontSize="20px">Carreras</p>
-      <p appFontSize="20px">Cursos</p>
-      <p appFontSize="20px">Productos</p>
+      <ul>
+        <li appFontSize="20px">
+          <a href="">Lista de alumnos</a>
+        </li>
+        <li appFontSize="20px">
+          <a href="">Carreras</a>
+        </li>
+        <li appFontSize="20px">
+          <a href="">Cursos</a>
+        </li>
+        <li appFontSize="20px">
+          <a href="">Productos</a>
+        </li>
+      </ul>
     }
     <button (click)="showFiller = !showFiller" mat-raised-button>
       Paginas
