@@ -10,20 +10,23 @@
     <p>Menu</p>
     
     @if (showFiller) {
-      <ul>
-        <li appFontSize="20px">
-          <a href="">Lista de alumnos</a>
-        </li>
-        <li appFontSize="20px">
-          <a href="">Carreras</a>
-        </li>
-        <li appFontSize="20px">
-          <a href="">Cursos</a>
-        </li>
-        <li appFontSize="20px">
-          <a href="">Productos</a>
-        </li>
-      </ul>
+      <mat-nav-list>
+        <ul>
+          <li appFontSize="20px">
+            <a routerLink="home">Inicio</a>
+          </li>
+          <li appFontSize="20px">
+            <a routerLink="users">Lista de alumnos</a>
+          </li>
+          <li appFontSize="20px">
+            <a routerLink="">Carreras</a>
+          </li>
+          <li appFontSize="20px">
+            <a routerLink="products">Cursos</a>
+          </li>
+        </ul>
+      </mat-nav-list>
+
     }
     <button (click)="showFiller = !showFiller" mat-raised-button>
       Paginas

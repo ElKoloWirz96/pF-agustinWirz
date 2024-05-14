@@ -17,6 +17,7 @@ import { ResaltadoDirective } from './directives/resaltado.directive';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FontSizeDirective } from './directives/font-size.directive';
 import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -46,7 +47,8 @@ import {MatTableModule} from '@angular/material/table';
     ResaltadoDirective,
     DragDropModule,
     FontSizeDirective,
-    MatTableModule
+    MatTableModule,
+    MatListModule
   ]
 })
 export class SharedModule { }
