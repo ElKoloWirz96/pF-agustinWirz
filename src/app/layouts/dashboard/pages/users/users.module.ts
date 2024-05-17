@@ -9,11 +9,13 @@ import { UsersComponent } from './users.component';
 import { SharedModule } from '../../../../shared/shared.module';
 import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
 import { PipesYDirectivasModule } from '../pipes-y-directivas/pipes-y-directivas.module';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
     UsersComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    UserDetailComponent
   ],
   imports: [
     CommonModule,

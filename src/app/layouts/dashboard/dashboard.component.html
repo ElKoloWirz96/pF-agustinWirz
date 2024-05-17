@@ -11,20 +11,18 @@
     
     @if (showFiller) {
       <mat-nav-list>
-        <ul>
           <li appFontSize="20px">
-            <a routerLink="home">Inicio</a>
+            <a routerLink="home" mat-list-item>Inicio</a>
           </li>
           <li appFontSize="20px">
-            <a routerLink="users">Lista de alumnos</a>
+            <a routerLink="users" mat-list-item>Lista de alumnos</a>
           </li>
           <li appFontSize="20px">
-            <a routerLink="">Carreras</a>
+            <a routerLink="" mat-list-item>Carreras</a>
           </li>
           <li appFontSize="20px">
-            <a routerLink="products">Cursos</a>
+            <a routerLink="products" mat-list-item>Cursos</a>
           </li>
-        </ul>
       </mat-nav-list>
 
     }
@@ -49,18 +47,8 @@
             </button>
                   <span appFontSize="20px">Inicio</span>
                   <span class="example-spacer"></span>
-            <button 
-                  mat-icon-button class="example-icon favorite-icon" 
-                  aria-label="Example icon-button with heart icon">
-                  <mat-icon>favorite</mat-icon>
-            </button>
-            <button 
-                  mat-icon-button class="example-icon" 
-                  aria-label="Example icon-button with share icon">
-                <mat-icon>share</mat-icon>
-            </button>
           </div>
-
+          <a mat-button (click)="logout()">Cerrar sesion</a>
         </div>
         
         </mat-toolbar>

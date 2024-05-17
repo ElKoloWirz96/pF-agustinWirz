@@ -13,7 +13,8 @@ const routes: Routes = [
   },
   {
     path: 'autch',
-    component: AutchComponent,
+    loadChildren: () =>
+      import ('./layouts/autch/autch.module').then( (m) =>m.AutchModule )
   },
   {
     path: '**',
