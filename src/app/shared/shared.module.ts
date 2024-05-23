@@ -18,6 +18,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FontSizeDirective } from './directives/font-size.directive';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -48,7 +49,8 @@ import {MatListModule} from '@angular/material/list';
     DragDropModule,
     FontSizeDirective,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }
