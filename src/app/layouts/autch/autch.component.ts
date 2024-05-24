@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../core/service/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
@@ -9,13 +9,17 @@ import { Subscription } from 'rxjs/internal/Subscription';
   templateUrl: './autch.component.html',
   styleUrl: './autch.component.scss'
 })
-export class AutchComponent implements OnDestroy {
+export class AutchComponent implements OnDestroy, OnInit {
 
   authUserChangeSubscription?: Subscription;
 
   constructor(private AuthService: AuthService, private router: Router) {}
+  ngOnInit(): void {
+    this.subscribeToAuthUserChange();
+  }
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    this.authUserChangeSubscription?.unsubscribe();
+
   }
 
   subscribeToAuthUserChange(): void {
