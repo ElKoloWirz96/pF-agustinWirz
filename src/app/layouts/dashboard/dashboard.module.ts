@@ -7,11 +7,12 @@ import { SharedModule } from '../../shared/shared.module';
 import { UsersModule } from './pages/users/users.module';
 import { PipesYDirectivasModule } from './pages/pipes-y-directivas/pipes-y-directivas.module';
 import { ProductsModule } from './pages/products/products.module';
+import { HomeDashboardModule } from './pages/home-dashboard/home-dashboard.module';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +20,8 @@ import { ProductsModule } from './pages/products/products.module';
     SharedModule,
     UsersModule,
     PipesYDirectivasModule,
-    ProductsModule
+    ProductsModule,
+    HomeDashboardModule
   ],
   exports: [
     DashboardComponent

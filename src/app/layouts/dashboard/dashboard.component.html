@@ -12,7 +12,7 @@
     @if (showFiller) {
       <mat-nav-list>
           <li appFontSize="20px">
-            <a routerLink="home" mat-list-item>Inicio</a>
+            <a routerLink="homeDashboard" mat-list-item>Inicio</a>
           </li>
           <li appFontSize="20px">
             <a routerLink="users" mat-list-item>Lista de alumnos</a>
@@ -53,14 +53,6 @@
         
         </mat-toolbar>
         <!-- Toolbar superior -->
-
-        <main style="padding: 1rem">
-          <div>
-            <button (click)=" logout()" mat-flat-button color="primary" >
-                Iniciar sesion
-            </button>
-        </div>
-        </main>
 
         <div class="app-user">
 

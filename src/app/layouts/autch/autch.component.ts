@@ -26,7 +26,7 @@ export class AutchComponent implements OnDestroy, OnInit {
     this.authUserChangeSubscription = this.AuthService.authUser$.subscribe({
       next: (authUser) => {
         if (authUser != null) {
-          this.router.navigate(['dashboard', 'home'])
+          this.router.navigate(['dashboard'])
         }
       }
     })

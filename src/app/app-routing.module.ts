@@ -3,23 +3,26 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { AutchComponent } from './layouts/autch/autch.component';
 
+
 const routes: Routes = [
+  
   {
-    path: 'dashboard',
-    component: DashboardComponent,
-    loadChildren: () => 
-      import ('./layouts/dashboard/dashboard.module').then(
-        (m) => m.DashboardModule )
+    path: '',
+    loadChildren: () => import('./layouts/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'autch',
-    loadChildren: () =>
-      import ('./layouts/autch/autch.module').then( (m) =>m.AutchModule )
+    loadChildren: () => import('./layouts/autch/autch.module').then((m) => m.AutchModule),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./layouts/dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
     path: '**',
-    redirectTo: 'dashboard',
-  }
+    redirectTo: '',
+  },
+
 ];
 
 @NgModule({
