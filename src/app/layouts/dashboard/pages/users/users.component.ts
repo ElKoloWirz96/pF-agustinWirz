@@ -33,6 +33,8 @@ export class UsersComponent implements OnInit {
 
   constructor(private matDialog: MatDialog, private usersService: UsersService) {}
 
+  // Carga de usuarios
+  
   ngOnInit(): void {
     this.loading = true;
     this.usersService.getUsers().subscribe({

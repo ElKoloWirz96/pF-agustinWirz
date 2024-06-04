@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   logout(): void {
     this.authService['logout']();
-    this.router.navigate(['autch']);
+    this.router.navigate(['home']);
   }
 
   isMobile(): boolean {

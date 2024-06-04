@@ -5,11 +5,7 @@ import { IProduct } from '../../layouts/dashboard/pages/products/models';
   providedIn: 'root'
 })
 export class ProductosServiceService {
-
-  constructor() {
-
-  }
-    
+  
   getProducts (): IProduct[] {
     return [
       {

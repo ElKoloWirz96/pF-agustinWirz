@@ -1,1 +1,3 @@
-<p>careers works!</p>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<pre *ngIf="!isLoading">{{ sales | json }}</pre>
