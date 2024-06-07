@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CareersSalesService } from './careers-sales.service';
-import { CISales } from './models';
+import { CISales, ICareers } from './models';
 import Swal from 'sweetalert2';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-careers',
@@ -10,9 +11,26 @@ import Swal from 'sweetalert2';
 })
 export class CareersComponent implements OnInit {
 
-  sales: CISales[] = [];
-
   isLoading = false
+
+  careerForm = new FormGroup({
+    career: new FormControl(null),
+    details: new FormControl(null),
+    price: new FormControl(null),
+    duration: new FormControl(null),
+  });
+
+  displayedColumns: string[] = [
+    'id',
+    'career',
+    'details',
+    'price',
+    'duration',
+  ];
+
+  Careers: ICareers[] = [];
+
+  sales: CISales[] = [];
 
   constructor(private careersSalesService: CareersSalesService) {};
 

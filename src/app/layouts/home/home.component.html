@@ -1,9 +1,56 @@
-<mat-toolbar>
+<mat-toolbar color="primary" class="d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+        <span class="mat-h2">Facultad XYZ</span>
+      </div>
     <main style="padding: 1rem">
         <div>
-          <button (click)=" logout()" mat-flat-button color="primary" >
+          <button (click)=" logout()" mat-raised-button color="accent" >
               Iniciar sesion
           </button>
       </div>
     </main>
 </mat-toolbar>
+
+<div class="container mt-4">
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Bienvenidos a la Facultad XYZ</h1>
+      <p class="lead">Ofrecemos una amplia variedad de carreras y cursos para su desarrollo profesional.</p>
+      <hr class="my-4">
+      <p>Conozca más sobre nuestras carreras y cursos visitando las secciones correspondientes.</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Ver Carreras</a>
+      <a class="btn btn-secondary btn-lg" href="#" role="button">Ver Cursos</a>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="assets/engineering.jpg" class="card-img-top" alt="Engineering">
+          <div class="card-body">
+            <h5 class="card-title">Ingeniería en Sistemas</h5>
+            <p class="card-text">Duración: 5 años. Formación integral en desarrollo y gestión de sistemas informáticos.</p>
+            <a href="#" class="btn btn-primary">Más Información</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="assets/administration.jpg" class="card-img-top" alt="Administration">
+          <div class="card-body">
+            <h5 class="card-title">Licenciatura en Administración</h5>
+            <p class="card-text">Duración: 4 años. Aprende a gestionar empresas y organizaciones con eficiencia.</p>
+            <a href="#" class="btn btn-primary">Más Información</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="assets/design.jpg" class="card-img-top" alt="Design">
+          <div class="card-body">
+            <h5 class="card-title">Diseño Gráfico</h5>
+            <p class="card-text">Duración: 3 años. Desarrolla tus habilidades creativas y técnicas en diseño.</p>
+            <a href="#" class="btn btn-primary">Más Información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

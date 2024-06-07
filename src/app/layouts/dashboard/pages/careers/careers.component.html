@@ -1,3 +1,88 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
+<form *ngIf="!isLoading" action="">
+  <mat-form-field>
+    <mat-label>
+      Career
+    </mat-label>
+    <mat-select formControlName="career">
+      <mat-option>
+
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      Career
+    </mat-label>
+    <mat-select formControlName="">
+      <mat-option>
+        
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      Career
+    </mat-label>
+    <mat-select formControlName="">
+      <mat-option>
+        
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      Career
+    </mat-label>
+    <mat-select formControlName="">
+      <mat-option>
+        
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<table *ngIf="!isLoading" mat-table [dataSource]="Careers" class="mat-elevation-z8">
+    
+    <!-- Id Columna -->
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Nombre Columna -->
+
+    <ng-container matColumnDef="career">
+      <th mat-header-cell *matHeaderCellDef> Career </th>
+      <td mat-cell *matCellDef="let element"> {{element.career}} </td>
+    </ng-container>
+  
+    <!-- Apellido Columna -->
+
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef> Details </th>
+      <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+    </ng-container>
+  
+    <!-- Email Columna -->
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <!--Role Columna-->
+
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef> Duration </th>
+      <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
 <pre *ngIf="!isLoading">{{ sales | json }}</pre>

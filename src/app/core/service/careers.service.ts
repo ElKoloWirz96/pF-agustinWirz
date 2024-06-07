@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { ICareers } from "../../layouts/dashboard/pages/careers/models";
 
 @Injectable({
     providedIn: 'root'   
