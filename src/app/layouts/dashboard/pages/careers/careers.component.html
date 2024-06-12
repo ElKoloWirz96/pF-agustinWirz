@@ -1,46 +1,57 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
-<form *ngIf="!isLoading" action="">
+<form [formGroup]="careerForm" *ngIf="!isLoading" action="">
   <mat-form-field>
     <mat-label>
       Career
     </mat-label>
     <mat-select formControlName="career">
-      <mat-option>
-
+      <mat-option [value]="Careers" *ngFor=" let Careers of Careers">
+        {{ Careers.career }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>
-      Career
+      Details
     </mat-label>
-    <mat-select formControlName="">
-      <mat-option>
-        
+    <mat-select formControlName="details">
+      <mat-option [value]="Careers" *ngFor=" let Careers of Careers">
+        {{ Careers.details }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>
-      Career
+      Price
     </mat-label>
-    <mat-select formControlName="">
-      <mat-option>
-        
+    <mat-select formControlName="price">
+      <mat-option [value]="Careers" *ngFor=" let Careers of Careers">
+        {{ Careers.price }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>
-      Career
+      Duration
     </mat-label>
-    <mat-select formControlName="">
-      <mat-option>
-        
+    <mat-select formControlName="duration">
+      <mat-option [value]="Careers" *ngFor=" let Careers of Careers">
+        {{ Careers.duration }}
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      Users
+    </mat-label>
+    <mat-select formControlName="user">
+      <mat-option [value]="users" *ngFor=" let users of users">
+        {{ users.nombre }} {{ users.apellido }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button (click)="" mat-button>Sign up</button>
 </form>
 
 <table *ngIf="!isLoading" mat-table [dataSource]="Careers" class="mat-elevation-z8">
@@ -86,3 +97,4 @@
   </table>
 
 <pre *ngIf="!isLoading">{{ sales | json }}</pre>
+<pre *ngIf="!isLoading">{{ careerForm.value | json }}</pre>

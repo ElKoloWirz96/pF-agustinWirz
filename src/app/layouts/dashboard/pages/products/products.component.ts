@@ -53,12 +53,12 @@ export class ProductsComponent implements OnInit {
   }
 
   async obtenerResultado() {
-    const cargadoColumna = new Promise((resolve, reject) => {
+    const cargadoColumna = new Promise((resolve, _reject) => {
       setTimeout(() => {
         resolve(true);
       }, 3000);
     });
 
-    await cargadoColumna.then((resultado) => {});
+    await cargadoColumna.then((_resultado) => {});
   }
 }

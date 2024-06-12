@@ -3,6 +3,9 @@ import { CareersSalesService } from './careers-sales.service';
 import { CISales, ICareers } from './models';
 import Swal from 'sweetalert2';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CareersService } from '../../../../core/service/careers.service';
+import { UsersService } from '../users/users.service';
+import { IUser } from '../users/models';
 
 @Component({
   selector: 'app-careers',
@@ -18,6 +21,7 @@ export class CareersComponent implements OnInit {
     details: new FormControl(null),
     price: new FormControl(null),
     duration: new FormControl(null),
+    user: new FormControl(null),
   });
 
   displayedColumns: string[] = [
@@ -32,14 +36,47 @@ export class CareersComponent implements OnInit {
 
   sales: CISales[] = [];
 
-  constructor(private careersSalesService: CareersSalesService) {};
+  users: IUser[] = [];
+
+  constructor(
+    private careersSalesService: CareersSalesService,
+    private careersService: CareersService,
+    private usersService: UsersService
+  ) {};
 
   ngOnInit(): void {
     this.loadSales();
+    this.loadCareers();
+    this.loadUsers();
   };
+
+  SignUp () {
+    this.careersSalesService.createSales(
+      this.careerForm.value
+    ).subscribe(
+      (data) => {
+        this.careerForm.reset();
+      }
+    )
+
+    this.loadSales();
+  }
+
+  loadUsers () {
+    this.usersService.getUsers().subscribe({
+      next: (users) => {
+        this.users = users;
+      }
+    })
+  }
+
+  loadCareers () {
+    this.Careers = this.careersService.getCareers();
+  }
 
   loadSales() {
     this.isLoading= true;
+    this.careersService.getCareers()
     this.careersSalesService.getSales().subscribe({
 
       next: (sales) => {
