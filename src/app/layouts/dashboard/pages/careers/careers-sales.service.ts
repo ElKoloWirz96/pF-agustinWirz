@@ -33,19 +33,19 @@ export class CareersSalesService {
         return of(SALES_CDB).pipe(delay(1000))
     }
 
-    createSales(data: CISales) {
-        SALES_CDB.push(data);
-        return of(SALES_CDB);
+    createSales(data: CISales): Observable<CISales[]> {
+      data.id = SALES_CDB.length + 1;
+      SALES_CDB.push(data);
+      return of(SALES_CDB);
+  }
+
+     deleteSales(id: number): Observable<CISales[]> {
+      SALES_CDB = SALES_CDB.filter((sale) => sale.id !== id);
+      return of(SALES_CDB);
     }
 
-    deleteSales(id: number) {
-        return of(SALES_CDB.filter((sale) => sale.id != id))
+      updateSales(id: number, data: CISales): Observable<CISales[]> {
+      SALES_CDB = SALES_CDB.map((sale) => sale.id === id ? {...sale, ...data} : sale);
+      return of(SALES_CDB);
     }
-
-    updateSales(id: number, data: CISales) {
-        return of(
-            SALES_CDB.map((sale) => sale.id === id ? {...sale, ...data} : sale
-        ));
-    }
-
 }

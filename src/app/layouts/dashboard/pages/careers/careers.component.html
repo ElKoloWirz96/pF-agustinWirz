@@ -1,6 +1,6 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
-<form [formGroup]="careerForm" *ngIf="!isLoading" action="">
+<form [formGroup]="careerForm" *ngIf="!isLoading">
   <mat-form-field>
     <mat-label>
       Career
@@ -51,7 +51,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button (click)="" mat-button>Sign up</button>
+  <button (click)="SignUp" mat-button>Sign up</button>
 </form>
 
 <table *ngIf="!isLoading" mat-table [dataSource]="Careers" class="mat-elevation-z8">

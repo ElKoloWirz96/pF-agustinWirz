@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CareersSalesService } from './careers-sales.service';
-import { CISales, ICareers } from './models';
+import { CISales, ICareers, IcareerForm } from './models';
 import Swal from 'sweetalert2';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CareersService } from '../../../../core/service/careers.service';
 import { UsersService } from '../users/users.service';
 import { IUser } from '../users/models';
@@ -16,13 +16,11 @@ export class CareersComponent implements OnInit {
 
   isLoading = false
 
-  careerForm = new FormGroup({
-    career: new FormControl(null),
-    details: new FormControl(null),
-    price: new FormControl(null),
-    duration: new FormControl(null),
-    user: new FormControl(null),
-  });
+  careerForm: FormGroup;
+  careers: ICareers[] = [];
+  sales: CISales[] = [];
+  users: IUser[] = [];
+  Careers: ICareers[] = [];
 
   displayedColumns: string[] = [
     'id',
@@ -32,17 +30,20 @@ export class CareersComponent implements OnInit {
     'duration',
   ];
 
-  Careers: ICareers[] = [];
-
-  sales: CISales[] = [];
-
-  users: IUser[] = [];
-
   constructor(
+    private fb: FormBuilder,
     private careersSalesService: CareersSalesService,
     private careersService: CareersService,
     private usersService: UsersService
-  ) {};
+  ) {
+    this.careerForm = this.fb.group({
+      career: this.fb.control<ICareers | null>(null, Validators.required),
+      details: this.fb.control<string | null>(null, Validators.required),
+      price: this.fb.control<string | number | null>(null, Validators.required),
+      duration: this.fb.control<string | null>(null, Validators.required),
+      user: this.fb.control<IUser | null>(null, Validators.required)
+    });
+  };
 
   ngOnInit(): void {
     this.loadSales();
@@ -50,16 +51,8 @@ export class CareersComponent implements OnInit {
     this.loadUsers();
   };
 
-  SignUp () {
-    this.careersSalesService.createSales(
-      this.careerForm.value
-    ).subscribe(
-      (data) => {
-        this.careerForm.reset();
-      }
-    )
-
-    this.loadSales();
+  SignUp() {
+   this.careersSalesService.createSales(this.careerForm.getRawValue());
   }
 
   loadUsers () {
