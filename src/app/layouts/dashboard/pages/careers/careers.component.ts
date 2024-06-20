@@ -52,7 +52,11 @@ export class CareersComponent implements OnInit {
   };
 
   SignUp() {
-   this.careersSalesService.createSales(this.careerForm.getRawValue());
+   this.careersSalesService.createSales(this.careerForm.getRawValue()).subscribe({
+    next: (sales) => {
+      console.log(sales)
+    }
+   });
   }
 
   loadUsers () {

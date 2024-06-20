@@ -34,9 +34,17 @@ export class CareersSalesService {
     }
 
     createSales(data: CISales): Observable<CISales[]> {
-      data.id = SALES_CDB.length + 1;
-      SALES_CDB.push(data);
-      return of(SALES_CDB);
+
+      if (data.buyer && data.careers && data.id) {
+        const newSale: CISales = {
+          id: data.id,
+          careers: data.careers,
+          buyer: data.buyer,
+        };
+        SALES_CDB.push(newSale);
+        return of(SALES_CDB);
+      }
+      return of([]);
   }
 
      deleteSales(id: number): Observable<CISales[]> {
