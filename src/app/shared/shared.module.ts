@@ -19,6 +19,7 @@ import { FontSizeDirective } from './directives/font-size.directive';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -36,6 +37,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     /* Angular Modules */
     
     MatSidenavModule,
+    MatCardModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

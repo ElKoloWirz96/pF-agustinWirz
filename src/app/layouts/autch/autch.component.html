@@ -1,5 +1,36 @@
 <main style="height: 100vh; background-color: grey;">
-    <div>
-        <button (click)="login()" color="primary" mat-flat-button> Iniciar sesion</button>
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="w-6">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Iniciar sesion
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form [formGroup]="loginForm">
+                        <div>
+                            <mat-form-field class="w-100">
+                                <mat-label>
+                                    Email
+                                </mat-label>
+                                <input formControlName="email" matInput />
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field class="w-100">
+                                <mat-label>
+                                    Password
+                                </mat-label>
+                                <input formControlName="password" matInput />
+                            </mat-form-field>
+                        </div>
+                    </form>
+                    <button (click)="login()" color="primary" mat-flat-button> 
+                        Iniciar sesion
+                    </button>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
 </main>

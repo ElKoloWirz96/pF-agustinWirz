@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../core/service/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -13,7 +14,14 @@ export class AutchComponent implements OnDestroy, OnInit {
 
   authUserChangeSubscription?: Subscription;
 
-  constructor(private AuthService: AuthService, private router: Router) {}
+  loginForm: FormGroup;
+
+  constructor(private AuthService: AuthService, private router: Router, private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required, Validators.email],
+      password: ['', Validators.required]
+    });
+  }
   ngOnInit(): void {
     this.subscribeToAuthUserChange();
   }
