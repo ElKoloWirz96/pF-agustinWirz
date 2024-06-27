@@ -3,6 +3,7 @@ import { AuthService } from '../../core/service/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginData } from './models';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class AutchComponent implements OnDestroy, OnInit {
 
   constructor(private AuthService: AuthService, private router: Router, private fb: FormBuilder) {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required, Validators.email],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
@@ -40,7 +41,11 @@ export class AutchComponent implements OnDestroy, OnInit {
     })
   }
 
-  login() {
-    this.AuthService.login();
+  login(data: LoginData): void {
+    if (this.loginForm.invalid) {
+        this.loginForm.markAllAsTouched();
+    } else {
+        this.AuthService.login(this.loginForm.getRawValue());
+    }
   }
 }
