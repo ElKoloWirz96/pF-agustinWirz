@@ -15,7 +15,8 @@
             <a routerLink="homeDashboard" mat-list-item>Inicio</a>
           </li>
           <li appFontSize="20px">
-            <a routerLink="users" mat-list-item>Lista de alumnos</a>
+            <a *ngIf="(authUser$ | async)?.role === 'admin'"
+             routerLink="users" mat-list-item>Lista de alumnos</a>
           </li>
           <li appFontSize="20px">
             <a routerLink="careers" mat-list-item>Carreras</a>

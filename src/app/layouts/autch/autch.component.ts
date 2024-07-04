@@ -24,22 +24,22 @@ export class AutchComponent implements OnDestroy, OnInit {
     });
   }
   ngOnInit(): void {
-    this.subscribeToAuthUserChange();
+    // this.subscribeToAuthUserChange();
   }
   ngOnDestroy(): void {
     this.authUserChangeSubscription?.unsubscribe();
 
   }
 
-  subscribeToAuthUserChange(): void {
-    this.authUserChangeSubscription = this.AuthService.authUser$.subscribe({
-      next: (authUser) => {
-        if (authUser != null) {
-          this.router.navigate(['dashboard'])
-        }
-      }
-    })
-  }
+//  subscribeToAuthUserChange(): void {
+//    this.authUserChangeSubscription = this.AuthService.authUser$.subscribe({
+//      next: (authUser) => {
+//        if (authUser != null) {
+//          this.router.navigate(['dashboard'])
+//        }
+//      }
+//    })
+//  }
 
   login(data: LoginData): void {
     if (this.loginForm.invalid) {
