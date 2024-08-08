@@ -19,10 +19,12 @@ export class UserDetailComponent {
 
     this.loading = true;
 
-    this.user$ = this.usersService.getUserById(parseInt(this.activatedRoute.snapshot.params['id'])).pipe(
-      finalize(() => {
-        this.loading = false;
-      })
+    this.user$ = this.usersService
+    .getUserById(this.activatedRoute.snapshot.params['id'])
+      .pipe(
+        finalize(() => {
+         this.loading = false;
+        })
     );
     
   }

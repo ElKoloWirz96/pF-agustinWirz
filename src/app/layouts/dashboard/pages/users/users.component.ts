@@ -75,9 +75,13 @@ export class UsersComponent implements OnInit {
 
               // Cargar nuevo usuario en la lista de alumnos
 
-              result.id = new Date().getTime().toString().substring(0, 3);
               result.createdAt = new Date();
-              this.user = [...this.user, result];
+
+              this.usersService.createUser(result).subscribe({
+                next: (usuarioCreado) => {
+                  this.user = [...this.user, usuarioCreado];
+                }
+              })
             }
           }
         }

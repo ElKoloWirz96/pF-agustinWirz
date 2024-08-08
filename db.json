@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "0205",
+      "nombre": "Agustin",
+      "apellido": "Wirz",
+      "email": "agustin-96@live.com.ar",
+      "role": "admin",
+      "createdAt": "new Date()"
+    }
+  ],
+  "careers": [],
+  "sales": []
+}
